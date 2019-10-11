@@ -1,0 +1,48 @@
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	background-color: rgba(100, 110, 0);
+}
+
+.slider, .thumbnails {
+	padding: 0;
+	width: 100%;
+	max-width: 800px;
+	margin: 40px auto;
+	overflow: hidden;
+}
+
+.images, .thumbnail {
+	background-color: inherit;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.thumbnail {
+	justify-content: space-around;
+}
+
+.thumbnail img {
+	width: 160px;
+	border: solid 20px transparent;
+}
+
+ .thumbnail img.active {
+	border-color: orange;
+	transform: scale(1.30);
+}
+
+
+
+
+
+
+
+
+
+
