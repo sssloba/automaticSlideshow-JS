@@ -1,12 +1,18 @@
 
 
-var imagesPath = ["img/image01.jpg", "img/image02.jpg", "img/image03.jpg", "img/image04.jpg"];
+var imagesPath = ["image01.jpg", "image02.jpg", "image03.jpg", "image04.jpg"];
 
 var images = document.querySelector('.images');
 
 var borders = document.getElementsByClassName('highlight');
 
 var slideIndex = 1;
+
+var pictures = document.querySelector('.images');
+var picture = document.createElement('img');
+
+picture.setAttribute('src', "img/" + imagesPath[0]);
+pictures.appendChild(picture);
 
 
 function repeat() {
@@ -29,7 +35,7 @@ function createImages() {
     var pictures = document.querySelector('.images');
     var picture = document.createElement('img');
 
-    picture.setAttribute('src', imagesPath[i]);
+    picture.setAttribute('src', "img/" + imagesPath[i]);
 
     pictures.appendChild(picture);
   };
@@ -50,6 +56,7 @@ var changeArr = function () {
 }
 
 
+
 function clear(everything) {
   everything.innerHTML = "";
 }
@@ -63,7 +70,7 @@ function addThumbnails() {
     var thumb = document.createElement('img');
 
 
-    thumb.setAttribute('src', imagesPath[j]);
+    thumb.setAttribute('src', "img/" + imagesPath[j]);
 
     thumb.classList.add('highlight');
 
@@ -73,9 +80,11 @@ function addThumbnails() {
 
 
 function addBorder() {
+
+  slideIndex++;
  
   if (slideIndex > imagesPath.length) {
-    slideIndex = 1
+    slideIndex = 1;
   } 
    
   for (i = 0; i < borders.length; i++) {
@@ -83,18 +92,16 @@ function addBorder() {
   }
 
   borders[slideIndex - 1].className += " active";
-
-  slideIndex++;
 }
 
-
-createImages(); 
 
 addThumbnails();
 
 borders[0].classList.add('active');
 
-setInterval(repeat, 1000);
+changeArr();
+
+setInterval(repeat, 2000);
 
 
 
