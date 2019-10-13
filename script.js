@@ -1,30 +1,21 @@
 
 
-var imagesPath = ["image01.jpg", "image02.jpg", "image03.jpg", "image04.jpg"];
+var imagesPath = ["img/image01.jpg", "img/image02.jpg", "img/image03.jpg", "img/image04.jpg"];
 
 var images = document.querySelector('.images');
 
-var borders = document.getElementsByClassName('highlight');
-
 var slideIndex = 1;
-
-var pictures = document.querySelector('.images');
-var picture = document.createElement('img');
-
-picture.setAttribute('src', "img/" + imagesPath[0]);
-pictures.appendChild(picture);
 
 
 function repeat() {
 
   clear(images);
 
-  createImages();  
-  
-  changeArr();
+  createImages();
+
+  addMargin();  
 
   addBorder(); 
-
 }
 
 
@@ -35,26 +26,25 @@ function createImages() {
     var pictures = document.querySelector('.images');
     var picture = document.createElement('img');
 
-    picture.setAttribute('src', "img/" + imagesPath[i]);
+    picture.setAttribute('src', imagesPath[i]);
 
     pictures.appendChild(picture);
   };
 }     
 
 
-var changeArr = function () {
+// var changeArr = function () {
  
-  var a = imagesPath[0];
+//   var a = imagesPath[0];
 
-  for (i = 0; i < imagesPath.length - 1; i++) {
-    imagesPath[i] = imagesPath[i + 1];
-  }
+//   for (i = 0; i < imagesPath.length - 1; i++) {
+//     imagesPath[i] = imagesPath[i + 1];
+//   }
 
-  imagesPath[imagesPath.length - 1] = a;
+//   imagesPath[imagesPath.length - 1] = a;
 
-  return imagesPath
-}
-
+//   return imagesPath
+// }
 
 
 function clear(everything) {
@@ -70,7 +60,7 @@ function addThumbnails() {
     var thumb = document.createElement('img');
 
 
-    thumb.setAttribute('src', "img/" + imagesPath[j]);
+    thumb.setAttribute('src', imagesPath[j]);
 
     thumb.classList.add('highlight');
 
@@ -81,10 +71,10 @@ function addThumbnails() {
 
 function addBorder() {
 
-  slideIndex++;
+  var borders = document.getElementsByClassName('highlight');
  
   if (slideIndex > imagesPath.length) {
-    slideIndex = 1;
+    slideIndex = 1
   } 
    
   for (i = 0; i < borders.length; i++) {
@@ -92,16 +82,33 @@ function addBorder() {
   }
 
   borders[slideIndex - 1].className += " active";
+
+  slideIndex++;
 }
 
 
+function addMargin() {
+  var slide = document.querySelector('.images');
+  slide.classList.add('moveMargin');
+}
+
+
+function removeMargin() {
+  var slide = document.querySelector('.images');
+  slide.classList.remove('moveMargin');
+}
+
+
+setTimeout(removeMargin, 1000);
+setInterval(removeMargin, 16000);
+
+createImages();
+
 addThumbnails();
 
-borders[0].classList.add('active');
+addBorder();
 
-changeArr();
-
-setInterval(repeat, 2000);
+setInterval(repeat, 4000);
 
 
 

@@ -13,6 +13,10 @@ body {
 	width: 100%;
 	max-width: 800px;
 	margin: 40px auto;
+	
+}
+
+.slider {
 	overflow: hidden;
 }
 
@@ -28,18 +32,23 @@ body {
 }
 
 .thumbnail img {
+	margin: 10px 0;
 	width: 160px;
 	border: solid 20px transparent;
+	
 }
 
  .thumbnail img.active {
 	border-color: orange;
-	transform: scale(1.30);
+	/*transform: scale(1.2) skew(-20deg) rotate(20deg);*/
 }
 
 
 
-
+.moveMargin {
+	margin-left: -2400px;
+	transition: 16s linear;
+}
 
 
 
