@@ -13,7 +13,6 @@ body {
 	width: 100%;
 	max-width: 800px;
 	margin: 40px auto;
-	
 }
 
 .slider {
@@ -35,7 +34,6 @@ body {
 	margin: 10px 0;
 	width: 160px;
 	border: solid 20px transparent;
-	
 }
 
  .thumbnail img.active {
@@ -43,11 +41,10 @@ body {
 	/*transform: scale(1.2) skew(-20deg) rotate(20deg);*/
 }
 
-
-
 .moveMargin {
+	/*transform: translate(-2400px);*/
 	margin-left: -2400px;
-	transition: 16s linear;
+  	transition: 16s linear;
 }
 
 
